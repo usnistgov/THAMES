@@ -1,2 +1,2 @@
 # THAMES
-Jeffry Bullard
+Jeffrey Bullard

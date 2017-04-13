@@ -55,5 +55,5 @@ FI-00014 Finland
 
 The primary references for GEM3K are
 
-    * Kulik, D.A., Wagner, T., Dmytrieva, S.V., Kosakowski, G., Hingerl, F.F., Chudnenko, K.B., Berner, U., GEM-Selektor geochemical modeling package: revised algorithm and GEMS3K numerical kernel for coupled simulation codes, _Computational Geosciences_ 17, (2013) 1-24.
-    * Wagner, T., Kulik, D.A., Hingerl, F.F., Dmytrieva, S.V., GEM-Selektor geochemical modeling package: TSolMod library and data interface for multicomponent phase models, _Canadian Mineralogist_ 50, (2012) 701-723.
+- Kulik, D.A., Wagner, T., Dmytrieva, S.V., Kosakowski, G., Hingerl, F.F., Chudnenko, K.B., Berner, U., GEM-Selektor geochemical modeling package: revised algorithm and GEMS3K numerical kernel for coupled simulation codes, _Computational Geosciences_ 17, (2013) 1-24.
+- Wagner, T., Kulik, D.A., Hingerl, F.F., Dmytrieva, S.V., GEM-Selektor geochemical modeling package: TSolMod library and data interface for multicomponent phase models, _Canadian Mineralogist_ 50, (2012) 701-723.

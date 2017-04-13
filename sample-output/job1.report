@@ -1,0 +1,11 @@
+THAMES job job1 initialized on Mon May 30 10:02:55 2016
+
+
+INPUT FILES USED:
+   Microstructure file name: ccr168_45.img.thames
+        GEM input file name: gem3k-dat.lst
+
+OUTPUT FILES GENERATED:
+     Global phase fractions: job1.stats
+
+

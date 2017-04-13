@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simulation_parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="/Users/bullard/thames_wd/parameters.xsd">
+  <calctime>0.001</calctime>
+  <calctime>0.0011</calctime>
+  <calctime>0.00121</calctime>
+  <calctime>0.001331</calctime>
+  <calctime>0.0014641</calctime>
+  <calctime>0.00161051</calctime>
+  <calctime>0.00177156</calctime>
+  <calctime>0.00194872</calctime>
+  <calctime>0.00214359</calctime>
+  <calctime>0.00235795</calctime>
+  <calctime>0.00259374</calctime>
+  <calctime>0.00285312</calctime>
+  <calctime>0.00313843</calctime>
+  <calctime>0.00345227</calctime>
+  <calctime>0.0037975</calctime>
+  <calctime>0.00417725</calctime>
+  <calctime>0.00459497</calctime>
+  <calctime>0.00505447</calctime>
+  <calctime>0.00555992</calctime>
+  <calctime>0.00611591</calctime>
+  <calctime>0.0067275</calctime>
+  <calctime>0.00740025</calctime>
+  <calctime>0.00814027</calctime>
+  <calctime>0.0089543</calctime>
+  <calctime>0.00984973</calctime>
+  <calctime>0.0108347</calctime>
+  <calctime>0.0119182</calctime>
+  <calctime>0.01311</calctime>
+  <calctime>0.014421</calctime>
+  <calctime>0.0158631</calctime>
+  <calctime>0.0174494</calctime>
+  <calctime>0.0191943</calctime>
+  <calctime>0.0211138</calctime>
+  <calctime>0.0232252</calctime>
+  <calctime>0.0255477</calctime>
+  <calctime>0.0281024</calctime>
+  <calctime>0.0309127</calctime>
+  <calctime>0.0340039</calctime>
+  <calctime>0.0374043</calctime>
+  <calctime>0.0411448</calctime>
+  <calctime>0.0452593</calctime>
+  <calctime>0.0497852</calctime>
+  <calctime>0.0547637</calctime>
+  <calctime>0.0602401</calctime>
+  <calctime>0.0662641</calctime>
+  <calctime>0.0728905</calctime>
+  <calctime>0.0801795</calctime>
+  <calctime>0.0881975</calctime>
+  <calctime>0.0970172</calctime>
+  <calctime>0.106719</calctime>
+  <calctime>0.117391</calctime>
+  <calctime>0.12913</calctime>
+  <calctime>0.142043</calctime>
+  <calctime>0.156247</calctime>
+  <calctime>0.171872</calctime>
+  <calctime>0.189059</calctime>
+  <calctime>0.207965</calctime>
+  <calctime>0.228762</calctime>
+  <calctime>0.251638</calctime>
+  <calctime>0.276801</calctime>
+  <calctime>0.304482</calctime>
+  <calctime>0.33493</calctime>
+  <calctime>0.368423</calctime>
+  <calctime>0.405265</calctime>
+  <calctime>0.445792</calctime>
+  <calctime>0.490371</calctime>
+  <calctime>0.539408</calctime>
+  <calctime>0.593349</calctime>
+  <calctime>0.652683</calctime>
+  <calctime>0.717952</calctime>
+  <calctime>0.789747</calctime>
+  <calctime>0.868722</calctime>
+  <calctime>0.955594</calctime>
+  <calctime>1.05115</calctime>
+  <calctime>1.15627</calctime>
+  <calctime>1.2719</calctime>
+  <calctime>1.39908</calctime>
+  <calctime>1.53899</calctime>
+  <calctime>1.69289</calctime>
+  <calctime>1.86218</calctime>
+  <calctime>2.0484</calctime>
+  <calctime>2.25324</calctime>
+  <calctime>2.47856</calctime>
+  <calctime>2.72642</calctime>
+  <calctime>3</calctime>
+  <calctime>3.3</calctime>
+  <calctime>3.63</calctime>
+  <calctime>3.993</calctime>
+  <calctime>4.3923</calctime>
+  <calctime>4.83153</calctime>
+  <calctime>5.31468</calctime>
+  <calctime>5.84615</calctime>
+  <calctime>6.43077</calctime>
+  <calctime>7</calctime>
+  <calctime>7.7</calctime>
+  <calctime>8.47</calctime>
+  <calctime>9.317</calctime>
+  <calctime>10.2487</calctime>
+  <calctime>11.2736</calctime>
+  <calctime>12.4009</calctime>
+  <calctime>14</calctime>
+  <calctime>15.4</calctime>
+  <calctime>16.94</calctime>
+  <calctime>18.634</calctime>
+  <calctime>20.4974</calctime>
+  <calctime>22.5471</calctime>
+  <calctime>24.8019</calctime>
+  <calctime>28</calctime>
+  <calctime>30</calctime>
+  <calctime>32</calctime>
+  <calctime>34</calctime>
+  <calctime>36</calctime>
+  <calctime>38</calctime>
+  <calctime>40</calctime>
+  <calctime>42</calctime>
+  <calctime>44</calctime>
+  <calctime>46</calctime>
+  <calctime>48</calctime>
+  <calctime>50</calctime>
+  <calctime>52</calctime>
+  <calctime>54</calctime>
+  <calctime>56</calctime>
+  <calctime>58</calctime>
+  <calctime>60</calctime>
+  <calctime>62</calctime>
+  <calctime>64</calctime>
+  <calctime>66</calctime>
+  <calctime>68</calctime>
+  <calctime>70</calctime>
+  <calctime>72</calctime>
+  <calctime>74</calctime>
+  <calctime>76</calctime>
+  <calctime>78</calctime>
+  <calctime>80</calctime>
+  <calctime>82</calctime>
+  <calctime>84</calctime>
+  <calctime>86</calctime>
+  <calctime>88</calctime>
+  <calctime>90</calctime>
+  <calctime>92</calctime>
+  <calctime>94</calctime>
+  <calctime>96</calctime>
+  <calctime>98</calctime>
+  <calctime>100</calctime>
+  <calctime>102	</calctime>
+<calctime>	104	</calctime>
+<calctime>	106	</calctime>
+<calctime>	108	</calctime>
+<calctime>	110	</calctime>
+<calctime>	112	</calctime>
+<calctime>	114	</calctime>
+<calctime>	116	</calctime>
+<calctime>	118	</calctime>
+<calctime>	120	</calctime>
+<calctime>	122	</calctime>
+<calctime>	124	</calctime>
+<calctime>	126	</calctime>
+<calctime>	128	</calctime>
+<calctime>	130	</calctime>
+<calctime>	132	</calctime>
+<calctime>	134	</calctime>
+<calctime>	136	</calctime>
+<calctime>	138	</calctime>
+<calctime>	140	</calctime>
+<calctime>	142	</calctime>
+<calctime>	144	</calctime>
+<calctime>	146	</calctime>
+<calctime>	148	</calctime>
+<calctime>	150	</calctime>
+<calctime>	152	</calctime>
+<calctime>	154	</calctime>
+<calctime>	156	</calctime>
+<calctime>	158	</calctime>
+<calctime>	160	</calctime>
+<calctime>	162	</calctime>
+<calctime>	164	</calctime>
+<calctime>	166	</calctime>
+<calctime>	168	</calctime>
+<calctime>	170	</calctime>
+<calctime>	172	</calctime>
+<calctime>	174	</calctime>
+<calctime>	176	</calctime>
+<calctime>	178	</calctime>
+<calctime>	180	</calctime>
+<calctime>	182	</calctime>
+<calctime>	184	</calctime>
+<calctime>	186	</calctime>
+<calctime>	188	</calctime>
+<calctime>	190	</calctime>
+<calctime>	192	</calctime>
+<calctime>	194	</calctime>
+<calctime>	196	</calctime>
+<calctime>	198	</calctime>
+<calctime>	200	</calctime>
+<calctime>	202	</calctime>
+<calctime>	204	</calctime>
+<calctime>	206	</calctime>
+<calctime>	208	</calctime>
+<calctime>	210	</calctime>
+<calctime>	212	</calctime>
+<calctime>	214	</calctime>
+<calctime>	216	</calctime>
+<calctime>	218	</calctime>
+<calctime>	220	</calctime>
+<calctime>	222	</calctime>
+<calctime>	224	</calctime>
+<calctime>	226	</calctime>
+<calctime>	228	</calctime>
+<calctime>	230	</calctime>
+<calctime>	232	</calctime>
+<calctime>	234	</calctime>
+<calctime>	236	</calctime>
+<calctime>	238	</calctime>
+<calctime>	240	</calctime>
+<calctime>	242	</calctime>
+<calctime>	244	</calctime>
+<calctime>	246	</calctime>
+<calctime>	248	</calctime>
+<calctime>	250	</calctime>
+<calctime>	252	</calctime>
+<calctime>	254	</calctime>
+<calctime>	256	</calctime>
+<calctime>	258	</calctime>
+<calctime>	260	</calctime>
+<calctime>	262	</calctime>
+<calctime>	264	</calctime>
+<calctime>	266	</calctime>
+<calctime>	268	</calctime>
+<calctime>	270	</calctime>
+<calctime>	272	</calctime>
+<calctime>	274	</calctime>
+<calctime>	276	</calctime>
+<calctime>	278	</calctime>
+<calctime>	280	</calctime>
+<calctime>	282	</calctime>
+<calctime>	284	</calctime>
+<calctime>	286	</calctime>
+<calctime>	288	</calctime>
+<calctime>	290	</calctime>
+<calctime>	292	</calctime>
+<calctime>	294	</calctime>
+<calctime>	296	</calctime>
+<calctime>	298	</calctime>
+<calctime>	300	</calctime>
+<calctime>	302	</calctime>
+<calctime>	304	</calctime>
+<calctime>	306	</calctime>
+<calctime>	308	</calctime>
+<calctime>	310	</calctime>
+<calctime>	312	</calctime>
+<calctime>	314	</calctime>
+<calctime>	316	</calctime>
+<calctime>	318	</calctime>
+<calctime>	320	</calctime>
+<calctime>	322	</calctime>
+<calctime>	324	</calctime>
+<calctime>	326	</calctime>
+<calctime>	328	</calctime>
+<calctime>	330	</calctime>
+<calctime>	332	</calctime>
+<calctime>	334	</calctime>
+<calctime>	336	</calctime>
+<calctime>	338	</calctime>
+<calctime>	340	</calctime>
+<calctime>	342	</calctime>
+<calctime>	344	</calctime>
+<calctime>	346	</calctime>
+<calctime>	348	</calctime>
+<calctime>	350	</calctime>
+<calctime>	352	</calctime>
+<calctime>	354	</calctime>
+<calctime>	356	</calctime>
+<calctime>	358	</calctime>
+<calctime>	360	</calctime>
+<calctime>	362	</calctime>
+<calctime>	364	</calctime>
+<calctime>	366	</calctime>
+<calctime>	368	</calctime>
+<calctime>	370	</calctime>
+<calctime>	372	</calctime>
+<calctime>	374	</calctime>
+<calctime>	376	</calctime>
+<calctime>	378	</calctime>
+<calctime>	380	</calctime>
+<calctime>	382	</calctime>
+<calctime>	384	</calctime>
+<calctime>	386	</calctime>
+<calctime>	388	</calctime>
+<calctime>	390	</calctime>
+<calctime>	392	</calctime>
+<calctime>	394	</calctime>
+<calctime>	396	</calctime>
+<calctime>	398	</calctime>
+<calctime>	400	</calctime>
+<calctime>	402	</calctime>
+<calctime>	404	</calctime>
+<calctime>	406	</calctime>
+<calctime>	408	</calctime>
+<calctime>	410	</calctime>
+<calctime>	412	</calctime>
+<calctime>	414	</calctime>
+<calctime>	416	</calctime>
+<calctime>	418	</calctime>
+<calctime>	420	</calctime>
+<calctime>	422	</calctime>
+<calctime>	424	</calctime>
+<calctime>	426	</calctime>
+<calctime>	428	</calctime>
+<calctime>	430	</calctime>
+<calctime>	432	</calctime>
+<calctime>	434	</calctime>
+<calctime>	436	</calctime>
+<calctime>	438	</calctime>
+<calctime>	440	</calctime>
+<calctime>	442	</calctime>
+<calctime>	444	</calctime>
+<calctime>	446	</calctime>
+<calctime>	448	</calctime>
+<calctime>	450	</calctime>
+<calctime>	452	</calctime>
+<calctime>	454	</calctime>
+<calctime>	456	</calctime>
+<calctime>	458	</calctime>
+<calctime>	460	</calctime>
+<calctime>	462	</calctime>
+<calctime>	464	</calctime>
+<calctime>	466	</calctime>
+<calctime>	468	</calctime>
+<calctime>	470	</calctime>
+<calctime>	472	</calctime>
+<calctime>	474	</calctime>
+<calctime>	476	</calctime>
+<calctime>	478	</calctime>
+<calctime>	480	</calctime>
+<calctime>	482	</calctime>
+<calctime>	484	</calctime>
+<calctime>	486	</calctime>
+<calctime>	488	</calctime>
+<calctime>	490	</calctime>
+<calctime>	492	</calctime>
+<calctime>	494	</calctime>
+<calctime>	496	</calctime>
+<calctime>	498	</calctime>
+<calctime>	500	</calctime>
+<calctime>	502	</calctime>
+<calctime>	504	</calctime>
+<calctime>	506	</calctime>
+<calctime>	508	</calctime>
+<calctime>	510	</calctime>
+<calctime>	512	</calctime>
+<calctime>	514	</calctime>
+<calctime>	516	</calctime>
+<calctime>	518	</calctime>
+<calctime>	520	</calctime>
+<calctime>	522	</calctime>
+<calctime>	524	</calctime>
+<calctime>	526	</calctime>
+<calctime>	528	</calctime>
+<calctime>	530	</calctime>
+<calctime>	532	</calctime>
+<calctime>	534	</calctime>
+<calctime>	536	</calctime>
+<calctime>	538	</calctime>
+<calctime>	540	</calctime>
+<calctime>	542	</calctime>
+<calctime>	544	</calctime>
+<calctime>	546	</calctime>
+<calctime>	548	</calctime>
+<calctime>	550	</calctime>
+<calctime>	552	</calctime>
+<calctime>	554	</calctime>
+<calctime>	556	</calctime>
+<calctime>	558	</calctime>
+<calctime>	560	</calctime>
+<calctime>	562	</calctime>
+<calctime>	564	</calctime>
+<calctime>	566	</calctime>
+<calctime>	568	</calctime>
+<calctime>	570	</calctime>
+<calctime>	572	</calctime>
+<calctime>	574	</calctime>
+<calctime>	576	</calctime>
+<calctime>	578	</calctime>
+<calctime>	580	</calctime>
+<calctime>	582	</calctime>
+<calctime>	584	</calctime>
+<calctime>	586	</calctime>
+<calctime>	588	</calctime>
+<calctime>	590	</calctime>
+<calctime>	592	</calctime>
+<calctime>	594	</calctime>
+<calctime>	596	</calctime>
+<calctime>	598	</calctime>
+<calctime>	600	</calctime>
+
+
+  <image_frequency>1.0</image_frequency>
+</simulation_parameters>

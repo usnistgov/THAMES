@@ -1,0 +1,12 @@
+/**
+@file version.h
+@brief Version definitions
+
+*/
+
+#ifndef VERSION_H
+#define VERSION_H
+#define VERSION @THAMES_VERSION@
+#define VERSION_MAJOR @THAMES_VERSION_MAJOR@
+#define VERSION_MINOR @THAMES_VERSION_MINOR@
+#endif

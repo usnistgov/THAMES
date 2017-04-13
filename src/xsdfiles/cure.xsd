@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="cure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="age"/>
+        <xs:element ref="inittime"/>
+        <xs:element ref="temp"/>
+        <xs:element ref="imagefrequency"/>
+        <xs:element ref="statfrequency"/>
+        <xs:element ref="fieldcalc"/>
+        <xs:element ref="activitycalc"/>
+        <xs:element ref="saturated"/>
+        <xs:element ref="adaptivetime"/>
+        <xs:element ref="cells2molardensity"/>
+        <xs:element ref="mixing"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="age" type="xs:decimal"/>
+  <xs:element name="inittime" type="xs:decimal"/>
+  <xs:element name="temp">
+      <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+              <xs:minInclusive value="-273.15"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="imagefrequency" type="xs:decimal"/>
+  <xs:element name="statfrequency" type="xs:decimal"/>
+  <xs:element name="fieldcalc" type="xs:boolean"/>
+  <xs:element name="activitycalc" type="xs:boolean"/>
+  <xs:element name="saturated" type="xs:boolean"/>
+  <xs:element name="adaptivetime" type="xs:boolean"/>
+  <xs:element name="cells2molardensity">
+      <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="mixing" type="xs:boolean"/>
+</xs:schema>

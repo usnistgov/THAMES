@@ -1,0 +1,5 @@
+#ifndef myconfig
+#define myconfig
+#include <string>
+const string xsd_files_path="@thames_XSDFILES_DIR@";
+#endif

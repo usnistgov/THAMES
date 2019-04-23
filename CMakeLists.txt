@@ -6,10 +6,17 @@ set (THAMES_VERSION 2.0)
 set (THAMES_VERSION_MAJOR 2)
 set (THAMES_VERSION_MINOR 0)
 
+set (thames_XSDFILES_DIR "${CMAKE_SOURCE_DIR}/src/thameslib/xsdfiles")
+
 # configure a header file to pass some CMake settings to source code
 configure_file (
     "${CMAKE_SOURCE_DIR}/src/version.h.in"
     "${CMAKE_SOURCE_DIR}/src/version.h"
+    )
+
+configure_file (
+    "${CMAKE_SOURCE_DIR}/src/thameslib/myconfig.h.in"
+    "${CMAKE_SOURCE_DIR}/src/thameslib/myconfig.h"
     )
 
 # look for doxygen capability

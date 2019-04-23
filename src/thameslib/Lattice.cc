@@ -88,9 +88,27 @@ Lattice::Lattice (ChemicalSystem *cs,
     setResolution(testres);
     xdim_ = ydim_ = zdim_ = 100;
   }
-  
-  numsites_ = (unsigned long int)(xdim_ * ydim_ * zdim_);
 
+  ///
+  /// Print out the microstructure size and characteristics
+  ///
+
+  cout << "Read microstructure file header..." << endl;
+  cout.flush();
+  cout << "    Version = " << version_ << endl;
+  cout.flush();
+  cout << "    xdim_ = " << xdim_ << endl;
+  cout.flush();
+  cout << "    ydim_ = " << ydim_ << endl;
+  cout.flush();
+  cout << "    zdim_ = " << zdim_ << endl;
+  cout.flush();
+  numsites_ = (unsigned long int)(xdim_ * ydim_ * zdim_);
+  cout << "    numsites_ = " << numsites_ << endl;
+  cout.flush();
+  cout << "    resolution_ = " << resolution_ << endl;
+  cout.flush();  
+  
   ///
   /// Allocate a random number generator object and seed it
   ///
@@ -103,7 +121,7 @@ Lattice::Lattice (ChemicalSystem *cs,
     }
 
     rg_->setSeed(-142234);
-    cout << "Checking whether I can get a seed " << rg_->getSeed();
+    cout << "Checking whether I can get a seed " << rg_->getSeed() << endl;
     cout.flush();
     cout << "Checking value of random number " << ", " << rg_->Ran3() << endl;
     cout.flush();
@@ -367,11 +385,11 @@ void Lattice::addSite (const unsigned int x,
     string msg;
     
     try {
-      if ( x >= xdim_ || x < 1 ) {
+      if ( x >= xdim_ || x < 0 ) {
         throw EOBException("Lattice","addSite","site_",xdim_,x);
-      } else if ( y >= ydim_ || y < 1 ) {
+      } else if ( y >= ydim_ || y < 0 ) {
         throw EOBException("Lattice","addSite","site_",ydim_,y);
-      } else if ( z >= zdim_ || z < 1 ) {
+      } else if ( z >= zdim_ || z < 0 ) {
         throw EOBException("Lattice","addSite","site_",zdim_,z);
       }
     }

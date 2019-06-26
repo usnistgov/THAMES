@@ -66,6 +66,7 @@ Controller::Controller (Lattice *msh,
         throw FileException("Controller","Controller",outfilename,"Could not append");
     }
     char cc;
+    out << "Time(d) ";
     for (register int i = 0; i < chemsys_->getDCnum(); i++) {
         cc = chemsys_->getDCclasscode(i); 
         if (cc == 'S' || cc == 'T' || cc == 'W') {
@@ -81,6 +82,7 @@ Controller::Controller (Lattice *msh,
         throw FileException("Controller","Controller",outfilename,"Could not append");
     }
 
+    out1 << "Time(d) ";
     for (register int i = 0; i < chemsys_->getDCnum(); i++) {
         cc = chemsys_->getDCclasscode(i); 
         if (cc == 'O' || cc == 'I' || cc == 'J' || cc == 'M' || cc == 'W') {
@@ -96,6 +98,7 @@ Controller::Controller (Lattice *msh,
         throw FileException("Controller","Controller",outfilename,"Could not append");
     }
 
+    out2 << "Time(d) ";
     for (register int i = 0; i < chemsys_->getMicphasenum(); i++) {
         out2 << chemsys_->getMicphasename(i) << " ";
     }   
@@ -107,7 +110,7 @@ Controller::Controller (Lattice *msh,
     if (!out3) {
         throw FileException("Controller","Controller",outfilename,"Could not append");
     }
-    out3 << "pH values" << endl;
+    out3 << "Time(d) pH values" << endl;
     out3.close();
 
     outfilename = jobroot_ + "_CSH.dat";
@@ -118,7 +121,7 @@ Controller::Controller (Lattice *msh,
     for (register int i = 0; i < chemsys_->getICnum(); i++){
         out4 << chemsys_->getICname(i) << " ";
     }
-    out4 << "Ca/Si Ratio" << endl;
+    out4 << "Time(d) Ca/Si Ratio" << endl;
     out4.close();
 
     outfilename = jobroot_ + "_CSratio_solid.dat";
@@ -126,7 +129,7 @@ Controller::Controller (Lattice *msh,
     if(!out5) {
         throw FileException("Controller","Controller",outfilename,"Could not append");
     }
-    out5 << "C/S in solid" << endl;
+    out5 << "Time(d) C/S in solid" << endl;
     out5.close();
     
     outfilename = jobroot_ + "_icmoles.dat";
@@ -134,6 +137,7 @@ Controller::Controller (Lattice *msh,
     if(!out6) {
         throw FileException("Controller","Controller",outfilename,"Could not append"); 
     }
+    out6 << "Time(d) ";
     for (register int i = 0; i < chemsys_->getICnum(); i++){
         out6 << chemsys_->getICname(i) << " ";
     }
@@ -174,7 +178,6 @@ void Controller::doCycle (const string &statfilename,
   register unsigned int i;
   int time_index;
   vector<double> output_time;
-  double next_output_time = imgfreq_;
   double next_stat_time = statfreq_;
     
   ///
@@ -296,9 +299,6 @@ void Controller::doCycle (const string &statfilename,
   output_time.push_back(365.0);
   output_time.push_back(730.0);
     
-  lattice_->writeLattice(jobroot_);
-  lattice_->writeLatticePNG(jobroot_);
-    
   // Initialize the list of all interfaces in the lattice
 
   cout << "Going into Lattice::FindInterfaces..." << endl;
@@ -320,7 +320,7 @@ void Controller::doCycle (const string &statfilename,
   for (i = 0; i < time_.size(); i++) {
 
     cout << "Time = " << time_[i] << endl;
-    cout << "Next output time = " << next_output_time << endl;
+    cout << "Next output time = " << output_time[time_index] << endl;
 
     cout << "TTTTT " << endl;
     time_t lt10 = time('\0');
@@ -328,16 +328,6 @@ void Controller::doCycle (const string &statfilename,
     time10 = localtime(&lt10);
     cout << asctime(time10);
 
-    if ((time_[i] >= output_time[time_index]) && (time_index < output_time.size())) {
-        time_index++;
-        cout << "Writing lattice now... " << endl;
-        lattice_->writeLattice(jobroot_);
-        lattice_->writeLatticePNG(jobroot_);
-        // lattice_->CheckPoint(jobroot_);
-        next_output_time = time_[i] + imgfreq_;
-        cout << "...Done!" << endl;
-    }
-    
     timestep = (i > 0) ? (time_[i] - time_[i-1]) : (time_[i]);
     bool isfirst = (i == 0) ? true : false;
 
@@ -357,6 +347,15 @@ void Controller::doCycle (const string &statfilename,
     cout << "Going into Lattice::changeMicrostructure" << endl;
     lattice_->changeMicrostructure(time_[i],isfirst);
 
+    if ((time_[i] >= output_time[time_index]) && (time_index < output_time.size())) {
+        cout << "Writing lattice now... time_[" << i << "] = " << time_[i] << ", output_time[" << time_index << "] = " << output_time[time_index] << endl;
+        lattice_->writeLattice(time_[i],jobroot_);
+        lattice_->writeLatticePNG(time_[i],jobroot_);
+        // lattice_->CheckPoint(jobroot_);
+        time_index++;
+        cout << "...Done!" << endl;
+    }
+    
     ///
     /// The following block executes only for sulfate attack simulations
     ///
@@ -391,8 +390,8 @@ void Controller::doCycle (const string &statfilename,
         damagecount_ = 0;  
         double poreintroduce = 0.5;
     
-        lattice_->writeLattice(jobroot_);
-        lattice_->writeLatticePNG(jobroot_);
+        lattice_->writeLattice(time_[i],jobroot_);
+        lattice_->writeLatticePNG(time_[i],jobroot_);
         string ofname(jobroot_);
         ostringstream ostr1,ostr2;
         ostr1 << (int)(time_[i] * 100);
@@ -559,8 +558,8 @@ void Controller::doCycle (const string &statfilename,
         outdamage.close();
     
         string damagejobroot = jobroot_ + ".damage";
-        lattice_->writeDamageLattice(damagejobroot);
-        lattice_->writeDamageLatticePNG(damagejobroot);
+        lattice_->writeDamageLattice(time_[i],damagejobroot);
+        lattice_->writeDamageLatticePNG(time_[i],damagejobroot);
         // to see whether new damage is generated
       }
     }
@@ -570,8 +569,8 @@ void Controller::doCycle (const string &statfilename,
   /// Write the lattice state to an ASCII file and to a PNG file for visualization
   ///
 
-  lattice_->writeLattice(jobroot_);
-  lattice_->writeLatticePNG(jobroot_);
+  // lattice_->writeLattice(jobroot_);
+  // lattice_->writeLatticePNG(jobroot_);
     
   return;
 }
@@ -708,6 +707,7 @@ void Controller::calculateState (double time,
                          outfilename,"Could not append");
     }
 
+    out3 << setprecision(5) << time << " ";
     char cc;
     for (register int i = 0; i < chemsys_->getDCnum(); i++) {
       cc = chemsys_->getDCclasscode(i); 
@@ -724,6 +724,8 @@ void Controller::calculateState (double time,
       throw FileException("Controller","calculateState",
                         outfilename,"Could not append");
     }
+
+    out4 << setprecision(5) << time << " ";
     for (register int i = 0; i < chemsys_->getDCnum(); i++) {
       if (chemsys_->getDCmolarmass(i) > 0.0) {
         cc = chemsys_->getDCclasscode(i); 
@@ -746,6 +748,7 @@ void Controller::calculateState (double time,
                         "Could not append");
     }
     cout << "Writing microstructure phase quantities..." << endl;
+    out5 << setprecision(5) << time << " ";
     for (register int i = 0; i < chemsys_->getMicphasenum(); i++) {
       //cout << "    " << chemsys_->getMicphasename(i) << " = "
       // << chemsys_->getMicphasevolfrac(i) << endl;
@@ -761,6 +764,7 @@ void Controller::calculateState (double time,
                         "Could not append");
     }
     cout << "Writing pH values..." << endl;
+    out6 << setprecision(5) << time << " ";
     out6 << (chemsys_->getPH()) << endl;
     out6.close();
         
@@ -773,6 +777,7 @@ void Controller::calculateState (double time,
       throw FileException("Controller","calculateState",
                         outfilename,"Could not append");
     }
+    out7 << setprecision(5) << time << " ";
     for (register unsigned int i = 0; i < chemsys_->getICnum(); i++){
       out7 << CSHcomp[i] << " ";
       if (chemsys_->getICname(i) == "Ca"){
@@ -799,6 +804,7 @@ void Controller::calculateState (double time,
       throw FileException("Controller","calculateState",
                         outfilename,"Could not append");
     }
+    out8 << setprecision(5) << time << " ";
     for (int i = 0; i < chemsys_->getPhasenum(); i++) {
       cc = chemsys_->getPhaseclasscode(i);
       if (cc == 's'){
@@ -822,6 +828,7 @@ void Controller::calculateState (double time,
       throw FileException("Controller","calculateState",
                         outfilename,"Could not append");
     }
+    out9 << setprecision(5) << time << " ";
     for (int i = 0; i < chemsys_->getICnum(); i++) {
       out9 << chemsys_->getICmoles(i) << " " ;
     }

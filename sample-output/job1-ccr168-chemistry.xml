@@ -44,8 +44,8 @@ xs:noNamespaceSchemaLocation="/Users/bullard/thames_wd/chemistry.xsd">
   <phase>
     <thamesname>C3S</thamesname>
     <gemphase_data>
-    <gemphasename>Alite</gemphasename>
-    <gemdcname>C3S</gemdcname>
+      <gemphasename>Alite</gemphasename>
+      <gemdcname>C3S</gemdcname>
     </gemphase_data>
     <id>2</id>
     <interface_data>

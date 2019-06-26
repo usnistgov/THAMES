@@ -17,6 +17,7 @@ Lattice::Lattice (ChemicalSystem *cs,
   numsites_ = 0;
   resolution_ = REFRES;     // in micrometers (see global.h)
   site_.clear();
+  deptheffect_ = false;
 }
 
 Lattice::Lattice (ChemicalSystem *cs,
@@ -39,6 +40,7 @@ Lattice::Lattice (ChemicalSystem *cs,
   numsites_ = 0;
   resolution_ = REFRES;     // in micrometers (see global.h)
   site_.clear();
+  deptheffect_ = false;
     
   ///
   /// Open the microstructure input file and process it
@@ -338,7 +340,6 @@ Lattice::Lattice (ChemicalSystem *cs,
 
     in.close();
  
- 
     ///
     /// With the phase counts known, calculate phase volume fractions
     ///
@@ -369,6 +370,7 @@ Lattice::Lattice (ChemicalSystem *cs,
       site_[ii].calcWmc();
     }
     cout << "...Done!" << endl;
+
 }
 
 Lattice::~Lattice ()
@@ -1600,16 +1602,18 @@ void Lattice::changeMicrostructure (double time,
     return;
 }
 
-void Lattice::writeLattice (const string &root)
+void Lattice::writeLattice (double curtime, const string &root)
 {
     register unsigned int i,j,k;
     string ofname(root);
     ostringstream ostr1,ostr2;
-    ostr1 << (int)(time_ * 100.0);	// ten-thousandths of a second
+    ostr1 << (int)((curtime * 100.0) + 0.5);  // hundredths of a day
     ostr2 << setprecision(3) << temperature_;
     string timestr(ostr1.str());
     string tempstr(ostr2.str());
     ofname = ofname + "." + timestr + "." + tempstr + ".img";
+    cout << "    In Lattice::writeLattice, curtime = " << curtime << ", timestr = " << timestr << endl;
+    cout.flush();
 
     ofstream out(ofname.c_str());
     try {
@@ -1680,12 +1684,12 @@ void Lattice::writeLattice (const string &root)
     out1.close();
 }
 
-void Lattice::writeDamageLattice (const string &root)
+void Lattice::writeDamageLattice (double curtime, const string &root)
 {
     register unsigned int i,j,k;
     string ofname(root);
     ostringstream ostr1,ostr2;
-    ostr1 << (int)(time_ * 100.0);	// ten-thousandths of a second
+    ostr1 << (int)((curtime * 100.0) + 0.5);	// hundredths of a day
     ostr2 << setprecision(3) << temperature_;
     string timestr(ostr1.str());
     string tempstr(ostr2.str());
@@ -1726,7 +1730,7 @@ void Lattice::writeDamageLattice (const string &root)
     out.close();
 }
 
-void Lattice::writeLatticePNG (const string &root)
+void Lattice::writeLatticePNG (double curtime, const string &root)
 {
     register unsigned int i,j,k;
     string ofname(root);
@@ -1749,7 +1753,7 @@ void Lattice::writeLatticePNG (const string &root)
     ///
 
     ostringstream ostr1,ostr2;
-    ostr1 << (int)(time_ * 100.0);	// hundredths of an hour
+    ostr1 << (int)((curtime * 100.0) + 0.5);	// hundredths of a day
     ostr2 << setprecision(3) << temperature_;
     string timestr(ostr1.str());
     string tempstr(ostr2.str());
@@ -1787,26 +1791,30 @@ void Lattice::writeLatticePNG (const string &root)
     long unsigned int sitenum;
     for (k = 0; k < zdim_; k++) {
         for (j = 0; j < ydim_; j++) {
-           done = false;
-           nd = 0;
-           sitenum = getIndex(slice,j,k);
-           ixx = slice;
-           do {
+           if (deptheffect_) {
+               done = false;
+               nd = 0;
+               sitenum = getIndex(slice,j,k);
+               ixx = slice;
+               do {
+                   sitenum = getIndex(ixx,j,k);
+                   if (nd == 10 || site_[sitenum].getPhaseId() > 1) {
+                       done = true;
+                   } else {
+                       nd++;
+                       ixx++;
+                       if (ixx >= xdim_) ixx -= xdim_;
+                   }
+               } while (!done);
                sitenum = getIndex(ixx,j,k);
-               if (nd == 10 || site_[sitenum].getPhaseId() > 1) {
-                   done = true;
-               } else {
-                   nd++;
-                   ixx++;
-                   if (ixx >= xdim_) ixx -= xdim_;
-               }
-           } while (!done);
-           sitenum = getIndex(ixx,j,k);
-           image[j][k] = site_[sitenum].getPhaseId();
-           dshade[j][k] = 1.0;
-           /*
-           dshade[j][k] = 0.1 * (10.0 - ((double)nd));
-           */
+               image[j][k] = site_[sitenum].getPhaseId();
+               dshade[j][k] = 0.1 * (10.0 - ((double)nd));
+           } else {
+               sitenum = getIndex(slice,j,k);
+               image[j][k] = site_[sitenum].getPhaseId();
+               dshade[j][k] = 1.0;
+           }
+
         }
     }          
 
@@ -1837,7 +1845,7 @@ void Lattice::writeLatticePNG (const string &root)
     return;
 }
 
-void Lattice::writeDamageLatticePNG (const string &root)
+void Lattice::writeDamageLatticePNG (double curtime, const string &root)
 {
     register unsigned int i,j,k;
     string ofname(root);
@@ -1860,7 +1868,7 @@ void Lattice::writeDamageLatticePNG (const string &root)
     ///
 
     ostringstream ostr1,ostr2;
-    ostr1 << (int)(time_ * 100.0);	// hundredths of an hour
+    ostr1 << (int)((curtime * 100.0) + 0.5);	// hundredths of an hour
     ostr2 << setprecision(3) << temperature_;
     string timestr(ostr1.str());
     string tempstr(ostr2.str());

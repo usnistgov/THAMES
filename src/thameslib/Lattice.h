@@ -84,6 +84,8 @@ double leach_time_;                         /**< Simulation time at which to beg
                                                     simulation of leaching [days] */
 double surfacearea_;                        /**< Total surface area [m<sup>2</sup>] */
 
+bool deptheffect_;                          /**< Whether or not PNG images should have depth effect */
+
 public:
     
 /**
@@ -785,35 +787,39 @@ void changeMicrostructure (double time,
 
 The microstructure output file will indicate the phase id at each site.
 
+@param curtime is the current time in days
 @param root is the root name of the output file to create
 */
-void writeLattice (const string &root);
+void writeLattice (double curtime, const string &root);
     
 /**
 @brief Write the 3D microstructure to a file.
 
 The damage output file is binary, each site either being damaged or not.
 
+@param curtime is the current time in days
 @param root is the root name of the output file to create
 */
-void writeDamageLattice (const string &root);
+void writeDamageLattice (double curtime, const string &root);
     
 
 /**
 @brief Write the 3D microstructure to a png file that can be immediately rendered.
 
+@param curtime is the current time in days
 @param root is the root name of the png output file to create
 */
-void writeLatticePNG (const string &root);
+void writeLatticePNG (double curtime, const string &root);
     
 /**
 @brief Write the 3D microstructure to a png file that can be immediately rendered.
 
 The damage output file is binary, each site either being damaged or not.
 
+@param curtime is the current time in days
 @param root is the root name of the png output file to create
 */
-void writeDamageLatticePNG (const string &root);
+void writeDamageLatticePNG (double curtime, const string &root);
     
 /**
 @brief Create files of sequential slices of the microstructure in the x direction.

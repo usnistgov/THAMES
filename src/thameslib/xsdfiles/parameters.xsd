@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+<!-- definition of simple types -->
+<xs:simpleType name="doubletype">
+  <xs:restriction base="xs:double"/>
+</xs:simpleType>
+
+<xs:simpleType name="positiveDoubletype">
+  <xs:restriction base="xs:double">
+    <xs:minInclusive value="0"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<!-- definition of root element -->
+
+<xs:element name="simulation_parameters">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="calctime" type="positiveDoubletype"/>
+      <xs:element name="image_frequency" type="positiveDoubletype"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>

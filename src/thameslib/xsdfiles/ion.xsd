@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="ions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ion"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="charge"/>
+        <xs:element ref="molwt"/>
+        <xs:element ref="diffusivity"/>
+        <xs:element ref="specgrav"/>
+        <xs:element ref="eqcon"/>
+        <xs:element ref="apm"/>
+        <xs:element ref="scp"/>
+        <xs:element ref="viscb"/>
+        <xs:element ref="ionsize"/>
+        <xs:element ref="bparam"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="charge" type="xs:integer"/>
+  <xs:element name="molwt">
+      
+      <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+      
+  </xs:element> 
+  <xs:element name="diffusivity">
+      
+      <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+      
+  </xs:element> 
+  <xs:element name="specgrav">
+      
+      <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+      
+  </xs:element> 
+  <xs:element name="eqcon" type="xs:decimal"/>
+  <xs:element name="apm" type="xs:decimal"/>
+  <xs:element name="scp" type="xs:decimal"/>
+  <xs:element name="viscb" type="xs:decimal"/>
+  <xs:element name="ionsize">
+      
+      <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+      
+  </xs:element> 
+  <xs:element name="bparam" type="xs:decimal"/>
+</xs:schema>

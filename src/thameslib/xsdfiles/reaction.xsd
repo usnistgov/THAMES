@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="reactions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="reaction"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="class"/>
+        <xs:element ref="rateconst"/>
+        <xs:element minOccurs="0" ref="volumescaling"/>
+        <xs:element ref="Keq"/>
+        <xs:element ref="Qstar"/>
+        <xs:element ref="enthalpy"/>
+        <xs:element maxOccurs="unbounded" ref="reactant"/>
+        <xs:element maxOccurs="unbounded" ref="product"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded"  ref="modifier"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="nucleation"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:integer"/>
+  <xs:element name="class">
+      <xs:simpleType>
+          <xs:restriction base="xs:string">
+              <xs:enumeration value="D"/>
+              <xs:enumeration value="P"/>
+              <xs:enumeration value="R"/>
+              <xs:enumeration value="S"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element> 
+  <xs:element name="rateconst">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="volumescaling">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="Keq">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="Qstar">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="enthalpy" type="xs:integer"/>
+  <xs:element name="reactant">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="coeff"/>
+        <xs:element ref="matname"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="product">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="coeff"/>
+        <xs:element ref="matname"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modifier">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="matname"/>
+        <xs:element ref="maxdoseconc"/>
+        <xs:element ref="strength"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="maxdoseconc">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="strength">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="nucleation">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="matname"/>
+        <xs:element ref="nuccoeff"/>
+        <xs:element ref="nucwork"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nuccoeff">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="nucwork">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="coeff" type="xs:integer"/>
+  <xs:element name="matname" type="xs:string"/>
+</xs:schema>

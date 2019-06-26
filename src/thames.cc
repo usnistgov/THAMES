@@ -100,7 +100,7 @@ int main (void)
 
         //
         // User must provide the name of the GEM data bridge (DBR) file
-        // for the aqueous solution
+        // for the whole system
         //
 
         cout << "What is the name of the GEM DBR file? " << endl;

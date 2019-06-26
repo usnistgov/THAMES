@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="mats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="mat"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="class"/>
+        <xs:element ref="porosity"/>
+        <xs:element ref="molarv"/>
+        <xs:element ref="specgrav"/>
+        <xs:element ref="xf"/>
+        <xs:element ref="mobility"/>
+        <xs:element ref="mobQstar"/>
+        <xs:element ref="enthalpy"/>
+        <xs:element ref="cp"/>
+        <xs:element ref="testwater105"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="comp"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="variant"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="class" type="xs:NCName"/>
+  <xs:element name="porosity">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="molarv">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="specgrav">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="xf">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="mobility">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="mobQstar">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="cp">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="testwater105">
+      <xs:simpleType>
+          <xs:restriction base="xs:double">
+              <xs:minInclusive value="0"/>
+          </xs:restriction>
+      </xs:simpleType>
+  </xs:element>
+  <xs:element name="enthalpy" type="xs:decimal"/>
+  <xs:element name="comp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="indx"/>
+        <xs:element ref="ionamount"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="indx" type="xs:integer"/>
+  <xs:element name="ionamount" type="xs:integer"/>
+  <xs:element name="variant" type="xs:string"/>
+</xs:schema>
